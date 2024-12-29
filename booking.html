@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="author" content="Untree.co">
+
+	<meta name="description" content="" />
+	<meta name="keywords" content="bootstrap, bootstrap4" />
+	<link href="css/booking.css" rel="stylesheet">
+	<!-- Bootstrap CSS -->
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+	<link href="css/tiny-slider.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+	<title>parcel Management System </title>
+</head>
+
+<body>
+
+	<!-- Start Header/Navigation -->
+	<nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
+
+		<div class="container">
+			<a class="navbar-brand" href="index.html">Quicko<span>.</span></a>
+
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni"
+				aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarsFurni">
+				<ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
+					<li >
+						<a class="nav-link" href="customer.html">Home</a>
+					</li>
+					<li class="nav-item active"><a class="nav-link" href="booking.html">Booking Service</a></li>
+					<li><a class="nav-link" href="tracking.html">Tracking</a></li>
+					<li><a class="nav-link" href="previousbooking.html">Previous Booking</a></li>
+					<li><a class="nav-link" href="contact.html">Contact</a></li>
+					<li><a class="nav-link" href="index.html">Logout</a></li>
+				</ul>
+
+				<ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
+
+				</ul>
+			</div>
+		</div>
+		<div id="current-time"></div>
+	</nav>
+	<div class="row">
+		<div class="col"></div>
+		<div class="col-6">
+			<form id="booking-form">
+                <!-- Sender Information -->
+                <fieldset>
+                    <legend>Sender Information</legend>
+                    <div class="form-group">
+                        <label for="sender-name">Name:</label>
+                        <input type="text" id="sender-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="sender-address">Address:</label>
+                        <textarea id="sender-address" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="sender-contact">Contact Details:</label>
+                        <input type="text" id="sender-contact" pattern="[0-9]+" required>
+                    </div>
+                </fieldset>
+
+                <!-- Receiver Information -->
+                <fieldset>
+                    <legend>Receiver Information</legend>
+                    <div class="form-group">
+                        <label for="receiver-name">Name:</label>
+                        <input type="text" id="receiver-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="receiver-address">Address:</label>
+                        <textarea id="receiver-address" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="receiver-pincode">Pin Code:</label>
+                        <input type="text" id="receiver-pincode" pattern="[0-9]{6}" required>
+                        <small>Must be a 6-digit number</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="receiver-contact">Contact Details:</label>
+                        <input type="tel" id="receiver-contact" pattern="[0-9]{10}" required>
+                        <small>Must be a 10-digit mobile number</small>
+                    </div>
+                </fieldset>
+
+                <!-- Parcel Details -->
+                <fieldset>
+                    <legend>Parcel Details</legend>
+                    <div class="form-group">
+                        <label for="parcel-size">Weight:</label>
+                        <input type="text" id="parcel-size" placeholder="e.g., 10kg" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="parcel-description">Contents Description:</label>
+                        <textarea id="parcel-description" placeholder="Describe the contents of the parcel" required></textarea>
+                    </div>
+                </fieldset>
+
+                <!-- Shipping Options -->
+                <fieldset>
+                    <legend>Shipping Options</legend>
+                    <div class="form-group">
+                        <label for="delivery-speed">Delivery Speed:</label>
+                        <select id="delivery-speed" required>
+                            <option value="">-- Select --</option>
+                            <option value="standard">Standard</option>
+                            <option value="express">Express</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="packaging-preference">Packaging Preference:</label>
+                        <select id="packaging-preference" required>
+                            <option value="">-- Select --</option>
+                            <option value="standard">Standard Packaging</option>
+                            <option value="custom">Custom Packaging</option>
+                            <option value="eco">Eco-friendly Packaging</option>
+                            <option value="fragile">Fragile Item Handling</option>
+                        </select>
+                    </div>
+                </fieldset>
+
+                <!-- Date and Time Selection -->
+                <fieldset>
+                    <legend>Date and Time Selection</legend>
+                    <div class="form-group">
+                        <label for="pickup-time">Preferred Pickup/Drop-off Time:</label>
+                        <input type="datetime-local" id="pickup-time" required>
+                    </div>
+                </fieldset>
+
+                <!-- Service Cost and Payment -->
+                <fieldset>
+                    <legend>Service Cost and Payment</legend>
+                    <div class="form-group">
+                        <label for="service-cost">Estimated Cost:</label>
+                        <input type="text" id="service-cost" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="payment-method">Payment Method:</label>
+                        <select id="payment-method" required onchange="showPaymentDetails()">
+                            <option value="">-- Select --</option>
+                            <option value="credit-card">Credit Card</option>
+                            <option value="debit-card">Debit Card</option>
+                            <option value="net-banking">Net Banking</option>
+                            <option value="cash">Cash on Delivery</option>
+                        </select>
+                    </div>
+
+                    <!-- Card Details (shown for credit/debit card) -->
+                    <div id="card-details" style="display: none;">
+                        <div class="form-group">
+                            <label for="card-number">Card Number:</label>
+                            <input type="text" id="card-number" placeholder="Enter your card number" pattern="\d{16}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="expiry-date">Expiry Date:</label>
+                            <input type="month" id="expiry-date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cvv">CVV:</label>
+                            <input type="text" id="cvv" pattern="\d{3}" placeholder="Enter CVV" required>
+                        </div>
+                    </div>
+
+                    <!-- Net Banking Details (shown for net banking) -->
+                    <div id="net-banking-details" style="display: none;">
+                        <div class="form-group">
+                            <label for="bank-name">Bank Name:</label>
+                            <input type="text" id="bank-name" placeholder="Enter your bank name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="account-number">Account Number:</label>
+                            <input type="text" id="account-number" pattern="\d+" placeholder="Enter your account number" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="ifsc-code">IFSC Code:</label>
+                            <input type="text" id="ifsc-code" placeholder="Enter IFSC Code" required>
+                        </div>
+                    </div>
+
+                    <!-- Cash on Delivery (No additional fields required for this option) -->
+                    <div id="cash-details" style="display: none;">
+                        <small>Cash will be collected on delivery.</small>
+                    </div>
+                </fieldset>
+
+                <!-- Additional Services -->
+                <fieldset>
+                    <legend>Additional Services</legend>
+                    <div class="form-group">
+                        <label for="insurance">Insurance Options:</label>
+                        <select id="insurance" required>
+                            <option value="">-- Select --</option>
+                            <option value="none">None</option>
+                            <option value="basic">Basic</option>
+                            <option value="premium">Premium</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="tracking">Tracking Services:</label>
+                        <select id="tracking" required>
+                            <option value="">-- Select --</option>
+                            <option value="basic">Basic Tracking</option>
+                            <option value="advanced">Advanced Tracking</option>
+                        </select>
+                    </div>
+                </fieldset>
+
+                <button type="submit" onclick="storeFormData(event)" class="btn btn-primary">BOOK</button>
+            </form>
+        </div>
+        <div class="col"></div>
+    </div>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/tiny-slider.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="js/bookings.js"></script>
+    <script src="js/bookstore.js"></script>
+
+    <script>
+        function showPaymentDetails() {
+            var paymentMethod = document.getElementById('payment-method').value;
+
+            // Hide all payment details sections
+            document.getElementById('card-details').style.display = 'none';
+            document.getElementById('net-banking-details').style.display = 'none';
+            document.getElementById('cash-details').style.display = 'none';
+
+            if (paymentMethod === 'credit-card' || paymentMethod === 'debit-card') {
+                document.getElementById('card-details').style.display = 'block';
+            } else if (paymentMethod === 'net-banking') {
+                document.getElementById('net-banking-details').style.display = 'block';
+            } else if (paymentMethod === 'cash') {
+                document.getElementById('cash-details').style.display = 'block';
+            }
+        }
+
+        // Function to set minimum expiry date to prevent past dates
+        function setMinExpiryDate() {
+            const currentDate = new Date();
+            const year = currentDate.getFullYear();
+            const month = currentDate.getMonth() + 1;
+            const formattedMonth = month < 10 ? '0' + month : month;
+            const minExpiryDate = `${year}-${formattedMonth}`;
+
+            document.getElementById("expiry-date").setAttribute("min", minExpiryDate);
+        }
+
+        // Call the function when the page loads
+        window.onload = setMinExpiryDate;
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="author" content="Untree.co">
+  <link rel="shortcut icon" href="favicon.png">
+
+  <meta name="description" content="" />
+  <meta name="keywords" content="bootstrap, bootstrap4" />
+
+  <!-- Bootstrap CSS -->
+  <link href="css/booking.css" rel="stylesheet">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link href="css/tiny-slider.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <title>Parcel Management System</title>
+</head>
+
+<body>
+  <!-- Start Header/Navigation -->
+  <nav class="custom-navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Quicko<span>.</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarsFurni">
+        <ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
+            <li >
+                <a class="nav-link" href="officierhome.html">Home</a></li>
+            <li><a class="nav-link" href="officer_tracking.html">Tracking</a></li>
+            <li class="nav-item active"><a class="nav-link" href="officer_delivery_status.html">Delivery Status</a></li>
+            <li><a class="nav-link" href="officer_pickup_status.html">Pickup Scheduling</a></li>
+            <li><a class="nav-link" href="officer_booking.html">Previous Booking</a></li>
+            <li><a class="nav-link" href="index.html">Logout</a></li>
+        </ul>
+
+        <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
+        </ul>
+    </div>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header>
+    <div class="d-flex justify-content-between p-3 bg-light">
+      <div>
+        <h2>Update Package Status</h2>
+      </div>
+      <div>
+        <span>Welcome, <b>OfficerName</b></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container mt-4">
+    <h3>Search and Update Package Status</h3>
+
+    <!-- Search Section -->
+    <div class="mb-4">
+      <form class="d-flex">
+        <input type="text" class="form-control me-2" id="booking-id" placeholder="Enter Booking ID" required>
+        <button type="button" class="btn btn-success">Search</button>
+      </form>
+    </div>
+
+    <!-- Package Details Section -->
+    <div class="card p-3">
+      <h5>Package Details</h5>
+      <div id="package-details" class="mb-3">
+        <!-- Placeholder Details -->
+        <p><strong>Booking ID:</strong> 123456789012</p>
+        <p><strong>Receiver Name:</strong> John Doe</p>
+        <p><strong>Current Status:</strong> In Transit</p>
+      </div>
+
+      <!-- Update Status Form -->
+      <form>
+        <div class="mb-3">
+          <label for="status" class="form-label">Update Status</label>
+          <select id="status" class="form-select" required>
+            <option value="" disabled selected>Select Status</option>
+            <option value="picked-up">Picked Up</option>
+            <option value="in-transit">In Transit</option>
+            <option value="delivered">Delivered</option>
+            <option value="returned">Returned</option>
+          </select>
+        </div>
+        <button type="button" class="btn btn-primary">Update Status</button>
+      </form>
+    </div>
+  </main>
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/tiny-slider.js"></script>
+  <script src="js/custom.js"></script>
+  <script src="js/officier_delivery_status.js"></script> <!-- Include the JS file -->
+</body>
+</html>

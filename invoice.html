@@ -1,0 +1,95 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="author" content="Untree.co">
+  <link rel="shortcut icon" href="favicon.png">
+
+  <meta name="description" content="" />
+  <meta name="keywords" content="bootstrap, bootstrap4" />
+
+		<!-- Bootstrap CSS -->
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+		<link href="css/tiny-slider.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">
+		<link href="css/booking.css" rel="stylesheet">
+		<title>parcel Management System </title>
+	</head>
+
+	<body>
+
+		<!-- Start Header/Navigation -->
+		<nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
+
+			<div class="container">
+				<a class="navbar-brand" href="index.html">Furni<span>.</span></a>
+
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+			</div>
+				
+		</nav>
+		<div class="row">
+			<div class="col"></div>
+			<div class="col-6">
+		<div class="invoice-container" id="invoice-container">
+			<h2>Invoice</h2>
+	
+			<!-- Invoice Details -->
+			<div class="invoice-detail">
+				<div>
+					Receiver Name: <span id="receiver-name"></span>
+				</div>
+			</div>
+			<div class="invoice-detail">
+				Receiver Address: <span id="receiver-address"></span>
+			</div>
+			<div class="invoice-detail">
+				Receiver Pin: <span id="receiver-pincode"></span>
+			</div>
+			<div class="invoice-detail">
+				Receiver Contact: <span id="receiver-mobile"></span>
+			</div>
+			<div class="invoice-detail">
+				Parcel Weight (kg): <span id="parcel-weight"></span>
+			</div>
+			<div class="invoice-detail">
+				Parcel Contents Description: <span id="parcel-description"></span>
+			</div>
+			<div class="invoice-detail">
+				Parcel Delivery Type: <span id="parcel-delivery-type"></span>
+			</div>
+			<div class="invoice-detail">
+				Parcel Packing Preference: <span id="parcel-packaging"></span>
+			</div>
+			<div class="invoice-detail">
+				Parcel Pickup Time: <span id="pickup-time"></span>
+			</div>
+			<div class="invoice-detail">
+				Parcel Dropoff Time:<span id="dropoff-time"></span>
+			</div>
+			<div class="invoice-detail">
+				Parcel Service Cost: <span id="service-cost"></span>
+			</div>
+			<div class="invoice-detail">
+				Parcel Payment Time:<span id="payment-time"></span>
+			</div>
+	
+			<!-- Download Button -->
+			<button class="btn btn-download" onclick="downloadInvoice().then(redirect)">Download Invoice as PDF</button>
+		</div>
+			</div>
+		<div class="col"></div>
+		<script src="js/bootstrap.bundle.min.js"></script>
+		<script src="js/tiny-slider.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+		<script src="js/invoice.js"></script>
+	</body>
+
+</html>
